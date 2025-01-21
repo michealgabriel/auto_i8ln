@@ -1,0 +1,13 @@
+{
+  "HELLO_MESSAGE": "Hello, welcome to our awesome app!",
+  "HELLO_MESSAGE_2": "Another hello message",
+  "ONE_MORE_MESSAGE": "One more message for good luck",
+  "NAV_SECOND_PAGE_BTN_MESSAGE": "Go to second page",
+  "APP_SETTINGS_TITLE_MESSAGE": "App Settings",
+  "SELECT_LANGUAGE_MESSAGE": "Select Language",
+  "SECOND_PAGE_TITLE": "Second Page",
+  "SECOND_PAGE_MESSAGE": "This is the second page, welcome aboard!",
+  "DIALOG_LOCALE_CHANGED_TITLE": "Locale Changed",
+  "DIALOG_LOCALE_CHANGED_MESSAGE": "You can restart the app to apply the new locale across the app.",
+  "DIALOG_OKAY": "Okay"
+}

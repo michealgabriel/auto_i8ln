@@ -1,0 +1,33 @@
+name: auto_i8ln
+description: An auto internationalization package for Flutter
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: '>=3.1.5 <4.0.0'
+  flutter: ">=1.17.0"
+  
+executables:
+  auto_i8ln_generate: bin/generate.dart
+
+dependencies:
+  flutter:
+    sdk: flutter
+  logging: ^1.2.0
+  google_generative_ai: ^0.4.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  # To add assets to your package, add an assets section, like this:
+  # assets:
+  #   - images/a_dot_burr.jpeg
+  #   - images/a_dot_ham.jpeg
