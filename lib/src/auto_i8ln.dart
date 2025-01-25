@@ -1,4 +1,3 @@
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'auto_i8nl_gen.dart';
@@ -18,7 +17,21 @@ class AutoText extends StatelessWidget {
   final TextWidthBasis? textWidthBasis;
   final TextHeightBehavior? textHeightBehavior;
   final Color? selectionColor;
-  const AutoText(this.text, {super.key, this.style, this.strutStyle, this.textAlign, this.textDirection, this.locale, this.softWrap, this.overflow, this.textScaleFactor, this.maxLines, this.semanticsLabel, this.textWidthBasis, this.textHeightBehavior, this.selectionColor});
+  const AutoText(this.text,
+      {super.key,
+      this.style,
+      this.strutStyle,
+      this.textAlign,
+      this.textDirection,
+      this.locale,
+      this.softWrap,
+      this.overflow,
+      this.textScaleFactor,
+      this.maxLines,
+      this.semanticsLabel,
+      this.textWidthBasis,
+      this.textHeightBehavior,
+      this.selectionColor});
 
   @override
   Widget build(BuildContext context) {
@@ -52,9 +65,17 @@ class AutoTextSpan {
   final String? semanticsLabel;
   final Locale? locale;
   final bool? spellOut;
-  AutoTextSpan({
-    this.text, this.children, this.style, this.recognizer, this.mouseCursor, this.onEnter, this.onExit, this.semanticsLabel, this.locale, this.spellOut
-  }) {
+  AutoTextSpan(
+      {this.text,
+      this.children,
+      this.style,
+      this.recognizer,
+      this.mouseCursor,
+      this.onEnter,
+      this.onExit,
+      this.semanticsLabel,
+      this.locale,
+      this.spellOut}) {
     textSpan();
   }
 

@@ -1,8 +1,9 @@
-
 /// assets/auto_i8nl_generations
 String generationsTargetDir = 'assets/language';
+
 /// CLI tool start message
 String cliToolStartMessage = 'Starting the CLI tool...';
+
 /// Init english content generation
 String enInitContentGen = '''
 {
@@ -17,9 +18,14 @@ String enInitContentGen = '''
   "NO_MESSAGE": "No"
 }
 ''';
+
 /// CLI locale generations start message
 String cliGenStartMessage = 'Starting the translations generator...';
+
 /// Uninitialized message
-String uninitializedMessage = 'AutoI8LN uninitialized!, you can use the "init" flag to start initialize the generation';
+String uninitializedMessage =
+    'AutoI8LN uninitialized!, you can use the "init" flag to start initialize the generation';
+
 /// Already initialized message
-String alreadyInitializedMessage = 'No need! AutoI8LN generation already initialized, you can use the "translations" flag to start the translations generator';
+String alreadyInitializedMessage =
+    'No need! AutoI8LN generation already initialized, you can use the "translations" flag to start the translations generator';

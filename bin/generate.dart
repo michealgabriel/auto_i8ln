@@ -1,4 +1,3 @@
-
 import 'dart:io';
 import 'package:auto_i8ln/utils/console_loader.dart';
 import 'package:auto_i8ln/utils/logger_util.dart';
@@ -7,9 +6,7 @@ import 'package:logging/logging.dart';
 import 'package:auto_i8ln/utils/string_constants.dart';
 import 'package:auto_i8ln/src/auto_i8nl_gen.dart';
 
-
 void main(List<String> args) async {
-
   // setup logger & console loader
   final loader = ConsoleLoader();
 
@@ -39,8 +36,7 @@ void main(List<String> args) async {
 
     // handle file
     final file = File('${directory.path}/auto_i8nl_gen_en.json');
-    if(!file.existsSync()) 
-    {
+    if (!file.existsSync()) {
       file.writeAsStringSync(enInitContentGen);
       logger.fine('Generated ${file.path}');
     } else {
@@ -61,24 +57,26 @@ void main(List<String> args) async {
     // handle file
     final file = File('${directory.path}/auto_i8nl_gen_en.json');
     final enContent = file.readAsStringSync();
-    if(!file.existsSync()) 
-    {
+    if (!file.existsSync()) {
       printUninitializedMessage(logger);
       return;
-    } 
+    }
 
     logger.info(cliGenStartMessage);
 
     // Generative AI >>>>>>
     bool allTasksCompleted = true;
-    for (var i = 1; i < autoI8lnGen.supportedLocaleNames.length; i++) // for loop start
+    for (var i = 1;
+        i < autoI8lnGen.supportedLocaleNames.length;
+        i++) // for loop start
     {
       final handlingLocale = autoI8lnGen.supportedLocales[i];
       final handlingLocaleName = autoI8lnGen.supportedLocaleNames[i];
-      final localeFile = File('${directory.path}/auto_i8nl_gen_$handlingLocale.json');
+      final localeFile =
+          File('${directory.path}/auto_i8nl_gen_$handlingLocale.json');
 
-      if(skipPresents) {
-        if(localeFile.existsSync()) {
+      if (skipPresents) {
+        if (localeFile.existsSync()) {
           logger.info('>>  🔁 Skipped $handlingLocaleName translations...');
           continue;
         }
@@ -86,7 +84,7 @@ void main(List<String> args) async {
 
       loader.start(message: 'Generating $handlingLocaleName translations...');
 
-final message = '''
+      final message = '''
 just giving me the result without any comments or words from you, do the following: 
 Maintaining the keys, translate the values into $handlingLocaleName:
 $enContent
@@ -94,14 +92,16 @@ $enContent
 
       final localeContent = await generativeAI(logger, message);
 
-      if(localeContent.isEmpty) {
+      if (localeContent.isEmpty) {
         allTasksCompleted = false;
-        loader.stop(endMessage: '❌ error...');  // stop the loader
+        loader.stop(endMessage: '❌ error...'); // stop the loader
         break;
       }
 
       localeFile.writeAsStringSync(localeContent);
-      await Future.delayed(const Duration(seconds: 3)); // wait a bit before generating the next locale, to avoid overload
+      await Future.delayed(const Duration(
+          seconds:
+              3)); // wait a bit before generating the next locale, to avoid overload
       loader.stop();
       logger.fine('Generated ${localeFile.path}');
     } // for loop end
@@ -110,15 +110,14 @@ $enContent
     if (allTasksCompleted) {
       logger.info('>>>>>>>>>>>>>>>>');
       logger.info('>>  All tasks completed! 🚀🔥🔥🔥');
-    }
-    else {
+    } else {
       logger.severe('>>>>>>>>>>>>>>>>');
       logger.severe('>>  Unable to complete tasks! ❌❌❌');
     }
   }
 
   // ! help flag - condition
-  else if(args[0] == '--help') {
+  else if (args[0] == '--help') {
     printUsage(logger);
   }
 
@@ -126,7 +125,6 @@ $enContent
   else {
     logger.warning('Unknown flag: $flag');
   }
-
 } // main
 
 // Prints the usage information for the auto_i8ln:generate command
@@ -148,14 +146,17 @@ void printAlreadyInitializedMessage(Logger logger) {
 }
 
 // Generates the translations using the generative AI
-Future<String> generativeAI(Logger logger, String message) async { 
-  try {  
+Future<String> generativeAI(Logger logger, String message) async {
+  try {
     final apiKey = Platform.environment['GEMINI_API_KEY'];
     if (apiKey == null) {
       logger.severe(r'No $GEMINI_API_KEY environment variable');
-      logger.warning('You can get your API key from: https://aistudio.google.com/app/apikey');
-      logger.warning('How to set your API key to environment variables (Linux/MacOS/Windows): https://ai.google.dev/gemini-api/docs/api-key');
-      logger.warning('(Windows Alternative) How to set your API key to environment variables (Windows): https://www3.ntu.edu.sg/home/ehchua/programming/howto/Environment_Variables.html');
+      logger.warning(
+          'You can get your API key from: https://aistudio.google.com/app/apikey');
+      logger.warning(
+          'How to set your API key to environment variables (Linux/MacOS/Windows): https://ai.google.dev/gemini-api/docs/api-key');
+      logger.warning(
+          '(Windows Alternative) How to set your API key to environment variables (Windows): https://www3.ntu.edu.sg/home/ehchua/programming/howto/Environment_Variables.html');
       exit(1);
     }
 
@@ -175,8 +176,7 @@ Future<String> generativeAI(Logger logger, String message) async {
     final content = Content.text(message);
     final response = await chat.sendMessage(content);
     return response.text!.replaceAll("```", "").replaceFirst("json", "");
-  } 
-  on GenerativeAIException catch (e) {
+  } on GenerativeAIException catch (e) {
     logger.severe(e.message);
   } catch (_) {}
 

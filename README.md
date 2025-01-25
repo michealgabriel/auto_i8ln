@@ -32,7 +32,7 @@ generationConfig: GenerationConfig(
     responseMimeType: 'text/plain',
 ),
 ```
-The AutoI8LN CLI tool would show you how to get your API key and set it in your terminal's environment variables.
+The AutoI8LN CLI would show you how to get your API key and set it in your terminal's environment variables.
 
 ## CLI Tool Usage
 Using the CLI tool in your terminal, at your project root, run:

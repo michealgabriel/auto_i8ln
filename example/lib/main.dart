@@ -1,4 +1,3 @@
-
 import 'package:auto_i8ln/auto_i8ln.dart';
 import 'package:example/second_page.dart';
 import 'package:flutter/material.dart';
@@ -18,12 +17,11 @@ void main() async {
     // ! NEXT: Initialize locale
     final content = await rootBundle.loadString(autoI8lnGen.getGenPath());
     autoI8lnGen.initializeLocale(content);
-  } catch(_) {}
+  } catch (_) {}
 
   // Run the app
   runApp(const MyApp());
 }
-
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -42,7 +40,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
 // Demo Page
 class DemoPage extends StatefulWidget {
   const DemoPage({super.key});
@@ -52,7 +49,6 @@ class DemoPage extends StatefulWidget {
 }
 
 class _DemoPageState extends State<DemoPage> {
-
   handleLocaleChange(String locale) async {
     autoI8lnGen.setLocale(locale);
     final content = await rootBundle.loadString(autoI8lnGen.getGenPath());
@@ -62,7 +58,7 @@ class _DemoPageState extends State<DemoPage> {
     prefs.setString('auto_i8ln_locale', locale);
 
     // Show restart dialog
-    if(mounted) {
+    if (mounted) {
       await showDialog<bool>(
         context: context,
         builder: (BuildContext context) {
@@ -86,49 +82,63 @@ class _DemoPageState extends State<DemoPage> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(height: 60,),
-
+            const SizedBox(
+              height: 60,
+            ),
             const AutoText("HELLO_MESSAGE"),
-            const SizedBox(height: 40,),
+            const SizedBox(
+              height: 40,
+            ),
             const AutoText("HELLO_MESSAGE_2"),
-            const SizedBox(height: 40,),
+            const SizedBox(
+              height: 40,
+            ),
             const AutoText("ONE_MORE_MESSAGE"),
-            const SizedBox(height: 40,),
-
+            const SizedBox(
+              height: 40,
+            ),
             Text.rich(
               TextSpan(
                 children: [
                   // autoI8lnGen.textSpan(text: "HELLO_MESSAGE_3", style: const TextStyle(fontWeight: FontWeight.bold)),
-                  AutoTextSpan(text: "HELLO_MESSAGE_2", style: TextStyle(fontWeight: FontWeight.bold)).textSpan(),
-                  TextSpan(text: autoI8lnGen.translate("HELLO_MESSAGE_2"), style: const TextStyle(fontStyle: FontStyle.italic)),
+                  AutoTextSpan(
+                          text: "HELLO_MESSAGE_2",
+                          style: TextStyle(fontWeight: FontWeight.bold))
+                      .textSpan(),
+                  TextSpan(
+                      text: autoI8lnGen.translate("HELLO_MESSAGE_2"),
+                      style: const TextStyle(fontStyle: FontStyle.italic)),
                 ],
               ),
               style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const SecondPage())
-                );
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const SecondPage()));
               },
               child: const AutoText("NAV_SECOND_PAGE_BTN_MESSAGE"),
             ),
-
-            const SizedBox(height: 60,),
-
-            const AutoText("APP_SETTINGS_TITLE_MESSAGE", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-
-            const SizedBox(height: 40,),
-
+            const SizedBox(
+              height: 60,
+            ),
+            const AutoText(
+              "APP_SETTINGS_TITLE_MESSAGE",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(
+              height: 40,
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: DropdownButtonFormField(
                 hint: const AutoText("SELECT_LANGUAGE_MESSAGE"),
-                items: autoI8lnGen.supportedLocaleNames.map((localeName) => DropdownMenuItem(
-                  value: autoI8lnGen.getLocaleISOByName(localeName),
-                  child: Text(localeName),
-                )).toList(),
+                items: autoI8lnGen.supportedLocaleNames
+                    .map((localeName) => DropdownMenuItem(
+                          value: autoI8lnGen.getLocaleISOByName(localeName),
+                          child: Text(localeName),
+                        ))
+                    .toList(),
                 onChanged: (value) => handleLocaleChange(value!),
               ),
             ),
