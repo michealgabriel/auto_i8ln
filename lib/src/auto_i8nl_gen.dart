@@ -47,4 +47,10 @@ class AutoI8lnGen {
     return localeJsonData[key] ?? '❌$key';    // Fallback to the key if no translation is found
   }
 
+  /// Live translates the given key
+  // String liveTranslate(String key) {
+  //   return key;
+  // }
+  
+
 }
