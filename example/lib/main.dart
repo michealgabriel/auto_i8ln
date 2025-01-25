@@ -95,6 +95,17 @@ class _DemoPageState extends State<DemoPage> {
             const AutoText("ONE_MORE_MESSAGE"),
             const SizedBox(height: 40,),
 
+            Text.rich(
+              TextSpan(
+                children: [
+                  // autoI8lnGen.textSpan(text: "HELLO_MESSAGE_3", style: const TextStyle(fontWeight: FontWeight.bold)),
+                  AutoTextSpan(text: "HELLO_MESSAGE_2", style: TextStyle(fontWeight: FontWeight.bold)).textSpan(),
+                  TextSpan(text: autoI8lnGen.translate("HELLO_MESSAGE_2"), style: const TextStyle(fontStyle: FontStyle.italic)),
+                ],
+              ),
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).push(
