@@ -1,6 +1,6 @@
 name: auto_i8ln
 description: Auto-i8ln is a powerful Flutter package designed to streamline the internationalization and localization process. It simplifies the creation of multilingual apps by automating many common localization tasks.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/michealgabriel/auto_i8ln
 
 environment:
