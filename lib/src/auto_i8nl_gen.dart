@@ -11,16 +11,21 @@ class AutoI8lnGen {
   /// Current locale data
   dynamic localeJsonData;
 
-  /// English: en || French: fr || German: de || Spanish: es || Italian: it
-  List<String> supportedLocales = ['en', 'fr', 'de', 'es', 'it'];
+  /// English: en || French: fr || German: de || Spanish: es || Italian: it || Portuguese: pt || Kikongo: kg || Somali: so || Chichewa: ny || Swahili: sw
+  List<String> supportedLocales = ['en', 'fr', 'de', 'es', 'it', 'pt', 'kg', 'so', 'ny', 'sw'];
 
-  /// English || French || German || Spanish || Italian
+  /// English || French || German || Spanish || Italian || Portuguese || Kikongo || Somali || Chichewa || Swahili
   List<String> supportedLocaleNames = [
     'English',
     'French',
     'German',
     'Spanish',
-    'Italian'
+    'Italian',
+    'Portuguese',
+    'Kikongo',
+    'Somali',
+    'Chichewa',
+    'Swahili'
   ];
 
   // ! Methods
