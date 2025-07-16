@@ -81,7 +81,7 @@ class AutoTextSpan {
 
   InlineSpan textSpan() {
     return TextSpan(
-      text: autoI8lnGen.translate("HELLO_MESSAGE"),
+      text: autoI8lnGen.translate(text!),
       children: children,
       style: style,
       recognizer: recognizer,

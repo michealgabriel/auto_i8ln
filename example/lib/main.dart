@@ -16,7 +16,7 @@ void main() async {
     autoI8lnGen.setLocale(locale);
     // ! NEXT: Initialize locale
     final content = await rootBundle.loadString(autoI8lnGen.getGenPath());
-    autoI8lnGen.initializeLocale(content);
+    autoI8lnGen.initializeLocale(content, debugModeFlag: true);
   } catch (_) {}
 
   // Run the app

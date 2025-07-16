@@ -31,3 +31,5 @@ build/
 
 .env
 /example/.env
+
+test_app/

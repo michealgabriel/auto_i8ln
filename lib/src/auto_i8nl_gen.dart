@@ -11,6 +11,9 @@ class AutoI8lnGen {
   /// Current locale data
   dynamic localeJsonData;
 
+  /// Debug mode status
+  bool debugMode = false;
+
   /// English: en || French: fr || German: de || Spanish: es || Italian: it || Portuguese: pt || Kikongo: kg || Somali: so || Chichewa: ny || Swahili: sw
   List<String> supportedLocales = ['en', 'fr', 'de', 'es', 'it', 'pt', 'kg', 'so', 'ny', 'sw'];
 
@@ -38,7 +41,9 @@ class AutoI8lnGen {
   }
 
   /// Initializes the locale with the given content
-  void initializeLocale(String localeContent) {
+  /// | debugModeFlag: Enables debug mode (this helps to identify missing keys as it marks them with a ❌ in your UI)
+  void initializeLocale(String localeContent, {bool debugModeFlag = false}) {
+    debugMode = debugModeFlag;
     localeJsonData = json.decode(localeContent);
   }
 
@@ -55,9 +60,26 @@ class AutoI8lnGen {
 
   /// Translates the given key
   String translate(String key) {
-    if (localeJsonData == null) return '❌$key';
-    return localeJsonData[key] ??
-        '❌$key'; // Fallback to the key if no translation is found
+    bool encounteredUnknownKey = false;
+    String stringCompile = '';
+    String xAppend = '';
+    if (debugMode) {
+      xAppend = '❌';
+    }
+
+    if (localeJsonData == null) return '$xAppend $key';
+
+    // split the key string by space and loop through each word
+    key.split(' ').forEach((word) {
+      if (localeJsonData.containsKey(word)) {
+        stringCompile += '${localeJsonData[word]} ';
+      } else {
+        encounteredUnknownKey = true;
+        stringCompile += '$word ';
+      }
+    });
+
+    return encounteredUnknownKey ? '$xAppend $stringCompile' : stringCompile;
   }
 
   /// Live translates the given key

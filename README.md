@@ -93,7 +93,7 @@ void main() async {
     autoI8lnGen.setLocale(locale);
     // ! NEXT: Initialize locale
     final content = await rootBundle.loadString(autoI8lnGen.getGenPath());
-    autoI8lnGen.initializeLocale(content);
+    autoI8lnGen.initializeLocale(content, debugMode: false);  // (optional bool parameter) debugMode
   } catch(_) {}
 
   // Run the app
