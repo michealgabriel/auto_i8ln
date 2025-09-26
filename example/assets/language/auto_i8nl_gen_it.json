@@ -2,14 +2,14 @@
 {
   "HELLO_MESSAGE": "Ciao, benvenuto nella nostra fantastica app!",
   "HELLO_MESSAGE_2": "Un altro messaggio di saluto",
-  "ONE_MORE_MESSAGE": "Un altro messaggio per fortuna",
+  "ONE_MORE_MESSAGE": "Un altro messaggio per buona fortuna",
   "NAV_SECOND_PAGE_BTN_MESSAGE": "Vai alla seconda pagina",
   "APP_SETTINGS_TITLE_MESSAGE": "Impostazioni App",
-  "SELECT_LANGUAGE_MESSAGE": "Seleziona Lingua",
+  "SELECT_LANGUAGE_MESSAGE": "Seleziona la lingua",
   "SECOND_PAGE_TITLE": "Seconda Pagina",
   "SECOND_PAGE_MESSAGE": "Questa è la seconda pagina, benvenuto a bordo!",
-  "DIALOG_LOCALE_CHANGED_TITLE": "Locale Cambiato",
-  "DIALOG_LOCALE_CHANGED_MESSAGE": "Puoi riavviare l'app per applicare il nuovo locale all'intera app.",
+  "DIALOG_LOCALE_CHANGED_TITLE": "Lingua cambiata",
+  "DIALOG_LOCALE_CHANGED_MESSAGE": "Puoi riavviare l'app per applicare la nuova lingua in tutta l'app.",
   "DIALOG_OKAY": "Okay"
 }
 

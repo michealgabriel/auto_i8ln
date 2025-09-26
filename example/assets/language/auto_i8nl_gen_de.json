@@ -1,15 +1,15 @@
 
 {
-  "HELLO_MESSAGE": "Hallo, willkommen in unserer tollen App!",
-  "HELLO_MESSAGE_2": "Eine weitere Willkommensnachricht",
+  "HELLO_MESSAGE": "Hallo, willkommen in unserer großartigen App!",
+  "HELLO_MESSAGE_2": "Eine weitere Hallo-Nachricht",
   "ONE_MORE_MESSAGE": "Noch eine Nachricht für viel Glück",
-  "NAV_SECOND_PAGE_BTN_MESSAGE": "Zur zweiten Seite gehen",
+  "NAV_SECOND_PAGE_BTN_MESSAGE": "Gehe zur zweiten Seite",
   "APP_SETTINGS_TITLE_MESSAGE": "App-Einstellungen",
   "SELECT_LANGUAGE_MESSAGE": "Sprache auswählen",
   "SECOND_PAGE_TITLE": "Zweite Seite",
-  "SECOND_PAGE_MESSAGE": "Dies ist die zweite Seite, herzlich willkommen!",
-  "DIALOG_LOCALE_CHANGED_TITLE": "Sprache geändert",
-  "DIALOG_LOCALE_CHANGED_MESSAGE": "Sie können die App neu starten, um die neue Sprache in der gesamten App anzuwenden.",
+  "SECOND_PAGE_MESSAGE": "Dies ist die zweite Seite, willkommen an Bord!",
+  "DIALOG_LOCALE_CHANGED_TITLE": "Gebietsschema geändert",
+  "DIALOG_LOCALE_CHANGED_MESSAGE": "Sie können die App neu starten, um das neue Gebietsschema in der gesamten App anzuwenden.",
   "DIALOG_OKAY": "Okay"
 }
 

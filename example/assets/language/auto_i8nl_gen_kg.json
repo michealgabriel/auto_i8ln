@@ -1,0 +1,15 @@
+
+{
+  "HELLO_MESSAGE": "Mbote, buenu ku nzila ya nzila ya ngunga!",
+  "HELLO_MESSAGE_2": "Nsangu ya mbote ya nkaka",
+  "ONE_MORE_MESSAGE": "Nsangu mosi ya nkaka sambu na kiese",
+  "NAV_SECOND_PAGE_BTN_MESSAGE": "Kwenda na lutiti ya zole",
+  "APP_SETTINGS_TITLE_MESSAGE": "Mambu ya App",
+  "SELECT_LANGUAGE_MESSAGE": "Ponapona ndinga",
+  "SECOND_PAGE_TITLE": "Lutiti ya Zole",
+  "SECOND_PAGE_MESSAGE": "Yai kele lutiti ya zole, buenu na nzila!",
+  "DIALOG_LOCALE_CHANGED_TITLE": "Ndinga Sobaka",
+  "DIALOG_LOCALE_CHANGED_MESSAGE": "Nge lenda yantika diaka app sambu na kusadila ndinga ya mpa na app mvimba.",
+  "DIALOG_OKAY": "Mbote"
+}
+

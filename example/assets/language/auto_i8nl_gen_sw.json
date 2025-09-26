@@ -1,0 +1,15 @@
+
+{
+  "HELLO_MESSAGE": "Habari, karibu kwenye programu yetu nzuri!",
+  "HELLO_MESSAGE_2": "Ujumbe mwingine wa habari",
+  "ONE_MORE_MESSAGE": "Ujumbe mmoja zaidi kwa bahati nzuri",
+  "NAV_SECOND_PAGE_BTN_MESSAGE": "Nenda kwenye ukurasa wa pili",
+  "APP_SETTINGS_TITLE_MESSAGE": "Mipangilio ya Programu",
+  "SELECT_LANGUAGE_MESSAGE": "Chagua Lugha",
+  "SECOND_PAGE_TITLE": "Ukurasa wa Pili",
+  "SECOND_PAGE_MESSAGE": "Huu ndio ukurasa wa pili, karibu!",
+  "DIALOG_LOCALE_CHANGED_TITLE": "Lugha Imebadilishwa",
+  "DIALOG_LOCALE_CHANGED_MESSAGE": "Unaweza kuanzisha upya programu ili kutumia lugha mpya katika programu.",
+  "DIALOG_OKAY": "Sawa"
+}
+

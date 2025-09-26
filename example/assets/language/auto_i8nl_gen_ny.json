@@ -1,0 +1,15 @@
+
+{
+  "HELLO_MESSAGE": "Moni, mwalandiridwa ku pulogalamu yathu yabwino!",
+  "HELLO_MESSAGE_2": "Uthenga wina wa moni",
+  "ONE_MORE_MESSAGE": "Uthenga wina woti mukhale ndi mwayi",
+  "NAV_SECOND_PAGE_BTN_MESSAGE": "Pitani ku tsamba lachiwiri",
+  "APP_SETTINGS_TITLE_MESSAGE": "Zosintha za pulogalamu",
+  "SELECT_LANGUAGE_MESSAGE": "Sankhani Chilankhulo",
+  "SECOND_PAGE_TITLE": "Tsamba lachiwiri",
+  "SECOND_PAGE_MESSAGE": "Ili ndi tsamba lachiwiri, takulandirani!",
+  "DIALOG_LOCALE_CHANGED_TITLE": "Malo osinthidwa",
+  "DIALOG_LOCALE_CHANGED_MESSAGE": "Mutha kuyambitsanso pulogalamuyi kuti mugwiritse ntchito malo atsopano mu pulogalamuyi.",
+  "DIALOG_OKAY": "Chabwino"
+}
+

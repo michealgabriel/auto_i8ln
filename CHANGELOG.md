@@ -10,3 +10,7 @@
 ## 0.0.3
 * Implemented debug mode
 * Refractored key translation logic to support substring based translations
+
+
+## 0.0.4
+* Updated base generative model to Gemini 2.0 Flash Lite

@@ -161,7 +161,7 @@ Future<String> generativeAI(Logger logger, String message) async {
     }
 
     final model = GenerativeModel(
-      model: 'gemini-1.5-flash',
+      model: 'gemini-2.0-flash-lite',
       apiKey: apiKey,
       generationConfig: GenerationConfig(
         temperature: 0,

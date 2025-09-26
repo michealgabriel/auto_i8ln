@@ -1,0 +1,15 @@
+
+{
+  "HELLO_MESSAGE": "Olá, bem-vindo ao nosso aplicativo incrível!",
+  "HELLO_MESSAGE_2": "Outra mensagem de olá",
+  "ONE_MORE_MESSAGE": "Mais uma mensagem para dar sorte",
+  "NAV_SECOND_PAGE_BTN_MESSAGE": "Ir para a segunda página",
+  "APP_SETTINGS_TITLE_MESSAGE": "Configurações do Aplicativo",
+  "SELECT_LANGUAGE_MESSAGE": "Selecione o Idioma",
+  "SECOND_PAGE_TITLE": "Segunda Página",
+  "SECOND_PAGE_MESSAGE": "Esta é a segunda página, bem-vindo a bordo!",
+  "DIALOG_LOCALE_CHANGED_TITLE": "Idioma Alterado",
+  "DIALOG_LOCALE_CHANGED_MESSAGE": "Você pode reiniciar o aplicativo para aplicar o novo idioma em todo o aplicativo.",
+  "DIALOG_OKAY": "Ok"
+}
+
