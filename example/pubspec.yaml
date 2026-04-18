@@ -70,6 +70,16 @@ flutter:
   assets:
     - assets/language/
 
+auto_i8ln:
+  locales:
+    en: English
+    yo: Yoruba
+    ha: Hausa
+    ig: Igbo
+    # fr: French
+    # de: German
+    # es: Spanish
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

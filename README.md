@@ -54,9 +54,17 @@ This will generate a default (English) language file in your project's `assets/l
 }
 ```
 
-Then update your `pubspec.yaml` to include the following:
+Then update your `pubspec.yaml` to include your target languages via the `auto_i8ln` section, and include the generated assets:
 ```yaml
-    assets:
+auto_i8ln:
+  locales:
+    en: English
+    fr: French
+    de: German
+    ha: Hausa
+
+flutter:
+  assets:
     - assets/language/
 ```
 
@@ -85,15 +93,24 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   try {
+    // ! IMPORTANT: Configure your valid locales first
+    autoI8lnGen.configLocales({
+      'en': 'English',
+      'fr': 'French',
+      'de': 'German',
+      'ha': 'Hausa'
+    }, fallbackLocale: 'en');
+
     // (Optional) You can have locale from SharedPreferences for persistence
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? locale = prefs.getString('auto_i8ln_locale');
 
-    // ! IMPORTANT: Set locale first
+    // Set the initial locale
     autoI8lnGen.setLocale(locale);
-    // ! NEXT: Initialize locale
+    
+    // Initialize locale content
     final content = await rootBundle.loadString(autoI8lnGen.getGenPath());
-    autoI8lnGen.initializeLocale(content, debugMode: false);  // (optional bool parameter) debugMode
+    autoI8lnGen.initializeLocale(content, debugModeFlag: false);  // set debugModeFlag to helpful missing marks
   } catch(_) {}
 
   // Run the app

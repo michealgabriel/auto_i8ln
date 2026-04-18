@@ -4,7 +4,8 @@ import 'package:auto_i8ln/utils/logger_util.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:logging/logging.dart';
 import 'package:auto_i8ln/utils/string_constants.dart';
-import 'package:auto_i8ln/src/auto_i8nl_gen.dart';
+
+import 'package:yaml/yaml.dart';
 
 void main(List<String> args) async {
   // setup logger & console loader
@@ -62,16 +63,45 @@ void main(List<String> args) async {
       return;
     }
 
+    // parse auto_i8ln config from pubspec.yaml
+    final pubspecFile = File('pubspec.yaml');
+    if (!pubspecFile.existsSync()) {
+      logger.severe('pubspec.yaml not found in current directory.');
+      return;
+    }
+
+    final pubspecContent = pubspecFile.readAsStringSync();
+    final pubspecDoc = loadYaml(pubspecContent);
+    final autoI8lnConfig = pubspecDoc['auto_i8ln'];
+
+    if (autoI8lnConfig == null || autoI8lnConfig['locales'] == null) {
+      logger.severe('auto_i8ln config missing in pubspec.yaml');
+      logger.warning('''Please configure your locales in your pubspec.yaml:
+auto_i8ln:
+  locales:
+    fr: French
+    de: German
+    ha: Hausa''');
+      return;
+    }
+
+    final localesMap = autoI8lnConfig['locales'] as YamlMap;
+    final supportedLocales = localesMap.keys.map((e) => e.toString()).toList();
+    final supportedLocaleNames =
+        localesMap.values.map((e) => e.toString()).toList();
+
     logger.info(cliGenStartMessage);
 
     // Generative AI >>>>>>
     bool allTasksCompleted = true;
-    for (var i = 1;
-        i < autoI8lnGen.supportedLocaleNames.length;
-        i++) // for loop start
+    for (var i = 0; i < supportedLocales.length; i++) // for loop start
     {
-      final handlingLocale = autoI8lnGen.supportedLocales[i];
-      final handlingLocaleName = autoI8lnGen.supportedLocaleNames[i];
+      final handlingLocale = supportedLocales[i];
+      final handlingLocaleName = supportedLocaleNames[i];
+
+      // Skip the base language file (en)
+      if (handlingLocale.toLowerCase() == 'en') continue;
+
       final localeFile =
           File('${directory.path}/auto_i8nl_gen_$handlingLocale.json');
 
@@ -161,7 +191,7 @@ Future<String> generativeAI(Logger logger, String message) async {
     }
 
     final model = GenerativeModel(
-      model: 'gemini-2.0-flash-lite',
+      model: 'gemini-2.5-flash',
       apiKey: apiKey,
       generationConfig: GenerationConfig(
         temperature: 0,

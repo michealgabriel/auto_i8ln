@@ -8,6 +8,16 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   try {
+    autoI8lnGen.configLocales({
+      'en': 'English',
+      'yo': 'Yoruba',
+      'ha': 'Hausa',
+      'ig': 'Igbo',
+      // 'fr': 'French',
+      // 'de': 'German',
+      // 'es': 'Spanish',
+    }, fallbackLocale: 'en');
+
     // You can have locale from SharedPreferences for persistence
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? locale = prefs.getString('auto_i8ln_locale');

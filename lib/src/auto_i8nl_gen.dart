@@ -14,30 +14,24 @@ class AutoI8lnGen {
   /// Debug mode status
   bool debugMode = false;
 
-  /// English: en || French: fr || German: de || Spanish: es || Italian: it || Portuguese: pt || Kikongo: kg || Somali: so || Chichewa: ny || Swahili: sw
-  List<String> supportedLocales = ['en', 'fr', 'de', 'es', 'it', 'pt', 'kg', 'so', 'ny', 'sw'];
-
-  /// English || French || German || Spanish || Italian || Portuguese || Kikongo || Somali || Chichewa || Swahili
-  List<String> supportedLocaleNames = [
-    'English',
-    'French',
-    'German',
-    'Spanish',
-    'Italian',
-    'Portuguese',
-    'Kikongo',
-    'Somali',
-    'Chichewa',
-    'Swahili'
-  ];
+  List<String> supportedLocales = ['en'];
+  List<String> supportedLocaleNames = ['English'];
+  String fallbackLocale = 'en';
 
   // ! Methods
+  /// Set the supported locales dynamically from your app code
+  void configLocales(Map<String, String> locales, {String fallbackLocale = 'en'}) {
+    supportedLocales = locales.keys.toList();
+    supportedLocaleNames = locales.values.toList();
+    this.fallbackLocale = fallbackLocale;
+  }
+
   /// Sets the locale to be used, default locale is 'en' if not set or no param is passed
   void setLocale(String? localeValue) {
     if (localeValue == null) return;
     locale = supportedLocales.firstWhere(
         (e) => e.toLowerCase() == localeValue.toLowerCase(),
-        orElse: () => supportedLocales[0]);
+        orElse: () => fallbackLocale);
   }
 
   /// Initializes the locale with the given content
@@ -54,8 +48,11 @@ class AutoI8lnGen {
 
   /// Returns the ISO code for the given locale name
   String getLocaleISOByName(String localeName) {
-    return autoI8lnGen
-        .supportedLocales[autoI8lnGen.supportedLocaleNames.indexOf(localeName)];
+    final idx = autoI8lnGen.supportedLocaleNames.indexOf(localeName);
+    if (idx != -1) {
+      return autoI8lnGen.supportedLocales[idx];
+    }
+    return fallbackLocale;
   }
 
   /// Translates the given key
