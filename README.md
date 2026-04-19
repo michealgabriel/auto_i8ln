@@ -69,8 +69,6 @@ flutter:
 ```
 
 You can then use the `auto_i8ln:generate translations` command to generate the language files for auto-i8ln supported locales.
-Currently, the following locales are supported:
-English, French, German, Spanish, Italian
 ```bash
 dart run auto_i8ln:generate translations
 ```
